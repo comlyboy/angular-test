@@ -11,6 +11,8 @@ import { StatesComponent } from './states/states.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { MessagesComponent } from './messages/messages.component';
 import { InteractionsComponent } from './interactions/interactions.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,10 @@ import { InteractionsComponent } from './interactions/interactions.component';
     InteractionsComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

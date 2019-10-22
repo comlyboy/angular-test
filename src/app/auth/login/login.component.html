@@ -1,3 +1,49 @@
-<p>
-  login works!
-</p>
+<div class="container mt-5 p-3 d-flex justify-content-center">
+    <div class="card my-shadow-design text-center" style="width: 25rem;">
+        <div class="card-header h5 bg-info text-white">Login</div>
+        <div class="card-body px-5 bg-white text-muted">
+            <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+                <input type="text" class="form-control form-control-lg mt-2" name="inputUserName" ngModel minlength="3"
+                    autocomplete="off" placeholder="Username..." #userName="ngModel" required>
+                <div class="alert alert-danger p-1 m-0" *ngIf="userName.touched && !userName.valid">
+                    <div *ngIf="userName.errors.required">
+                        This field is required.
+                    </div>
+                    <div *ngIf="userName.errors.minlength">
+                        Minimum 3 characters needed.
+                    </div>
+                </div>
+
+                <input type="password" class="form-control form-control-lg mt-4" name="inputPassword" ngModel
+                    minlength="6" placeholder="Password..." #password="ngModel" required>
+                <div class="alert alert-danger p-1 m-0" *ngIf="password.touched && !password.valid">
+                    <div *ngIf="password.errors.required">
+                        This field is required.
+                    </div>
+                    <div *ngIf="password.errors.minlength">
+                        Minimum 6 characters needed.
+                    </div>
+                </div>
+
+                <div class="form-group form-check text-left mt-4 text-muted">
+                    <input type="checkbox" class="form-check-input">
+                    <label class="form-check-label">Keep me signed in</label>
+                </div>
+
+                <!-- <button mat-raised-button class="btn btn-block btn-lg btn-info font-weight-bold mt-2 py-1" type="submit"
+                    [disabled]="!loginForm.valid">Sign In</button> -->
+
+                    <!-- below is a sample button -->
+                <button mat-raised-button class="btn btn-block btn-lg btn-info font-weight-bold mt-2 py-1" routerLink="/dashboard" type="button"
+                    [disabled]="loginForm.valid">Sign In</button>
+
+                <div class="d-flex align-items-end flex-column bd-highlight">
+                    <a class="mt-1 mb-4 small text-primary">Forgot password?</a>
+
+                </div>
+                <p class="mt-5">Don't have an Account?</p>
+                <a class="lead green-text" routerLink="/register">Register</a>
+            </form>
+        </div>
+    </div>
+</div>

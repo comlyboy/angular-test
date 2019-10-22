@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./banks.component.css']
 })
 export class BanksComponent implements OnInit {
-
+  totalBanks: number = 231;
   constructor() { }
 
   ngOnInit() {

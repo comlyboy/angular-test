@@ -5,10 +5,21 @@ html, body {
     height: 100%;
 }
 
+mat-icon {
+    vertical-align: middle !important;
+}
+
 body {
     margin: 0;
     font-size: 14px !important;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Nuni !important;
     background-color: rgba(234, 235, 239, 0.527) !important;
+}
 
+a:hover {
+    text-decoration: none !important;
+}
+
+.pointerr {
+    cursor: pointer;
 }

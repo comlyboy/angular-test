@@ -3,6 +3,7 @@
         <div class="card-header h5 bg-info text-white">Login</div>
         <div class="card-body px-5 bg-white text-muted">
             <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+                
                 <input type="text" class="form-control form-control-lg mt-2" name="inputUserName" ngModel minlength="3"
                     autocomplete="off" placeholder="Username..." #userName="ngModel" required>
                 <div class="alert alert-danger p-1 m-0" *ngIf="userName.touched && !userName.valid">
@@ -30,11 +31,11 @@
                     <label class="form-check-label">Keep me signed in</label>
                 </div>
 
-                <!-- <button mat-raised-button class="btn btn-block btn-lg btn-info font-weight-bold mt-2 py-1" type="submit"
+                <!-- <button mat-raised-button class="btn btn-block btn-lg btn-info mt-2 py-1" type="submit"
                     [disabled]="!loginForm.valid">Sign In</button> -->
 
                     <!-- below is a sample button -->
-                <button mat-raised-button class="btn btn-block btn-lg btn-info font-weight-bold mt-2 py-1" routerLink="/dashboard" type="button"
+                <button mat-raised-button class="btn btn-block btn-lg btn-info mt-2 py-1" routerLink="/dashboard" type="button"
                     [disabled]="loginForm.valid">Sign In</button>
 
                 <div class="d-flex align-items-end flex-column bd-highlight">
@@ -42,7 +43,7 @@
 
                 </div>
                 <p class="mt-5">Don't have an Account?</p>
-                <a class="lead green-text" routerLink="/register">Register</a>
+                <a class="lead text-info" routerLink="/register">Register</a>
             </form>
         </div>
     </div>

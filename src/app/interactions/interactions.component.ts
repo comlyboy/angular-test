@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InteractionsComponent implements OnInit {
 
+  totalinteractions: number = 56;
+
   constructor() { }
 
   ngOnInit() {

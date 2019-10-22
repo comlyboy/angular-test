@@ -1,1 +1,73 @@
-<router-outlet></router-outlet>
+<mat-drawer-container class="containerr" autosize>
+
+    <mat-toolbar class="bg-info my-toolbar container-fluid">
+        <a class="pointerr ml-3 text-white" (click)="drawer.toggle()">
+            <mat-icon>dehaze</mat-icon>
+        </a>
+        <p class="text-white mb-0 ml-5 h5">My App</p>
+        <button class="btn btn-lg text-white ml-auto py-0 mr-5" mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+            <ng-template matMenuContent>
+                <button mat-button (click)="onLogout()" class="ml-2">
+                    <mat-icon>power_settings_new</mat-icon> Logout
+                </button>
+            </ng-template>
+        </mat-menu>
+    </mat-toolbar>
+    <!-- mode="side" -->
+
+    <mat-drawer #drawer class="sidebar lead font-weight-bold" mode="over">
+
+        <div class="sidebar-content">
+            <img src="../assets/logo_.jpg" alt="" srcset="">
+            <hr>
+            <ul>
+                <li matRipple (click)="drawer.close()"><a routerLink="/dashboard" routerLinkActive="current">
+                        <mat-icon class="mr-2">dashboard</mat-icon>Dashboard
+                    </a></li>
+
+                <li matRipple (click)="drawer.close()"><a routerLink="/states" routerLinkActive="current">
+                        <mat-icon class="mr-2">dashboard</mat-icon>States
+                    </a></li>
+
+                <li matRipple (click)="drawer.close()"><a routerLink="/banks" routerLinkActive="current">
+                        <mat-icon class="mr-2">dashboard</mat-icon>
+                        Banks
+                    </a></li>
+
+                <li matRipple (click)="drawer.close()"><a routerLink="/customers" routerLinkActive="current">
+                        <mat-icon class="mr-2">dashboard</mat-icon>
+                        Customers
+                    </a></li>
+
+                <li matRipple (click)="drawer.close()"><a routerLink="/transactions" routerLinkActive="current">
+                        <mat-icon class="mr-2">dashboard</mat-icon>
+                        Transactions
+                    </a></li>
+
+                <li matRipple (click)="drawer.close()"><a routerLink="/interactions" routerLinkActive="current">
+                        <mat-icon class="mr-2">dashboard</mat-icon>
+                        Interactions
+                    </a></li>
+
+                <li matRipple (click)="drawer.close()"><a routerLink="/messages" routerLinkActive="current">
+                        <mat-icon class="mr-2">dashboard</mat-icon>
+                        Messages
+                    </a></li>
+            </ul>
+            <div class="text-center mt-5 pt-5">
+                <a matRipple (click)="onLogout()" (click)="drawer.close()"
+                    class="mt-4 lead font-weight-bold my-ppointer border-0"><i
+                        class="fa fa-power-off mr-2"></i>Logout</a>
+            </div>
+        </div>
+
+    </mat-drawer>
+    <div class="sidenav-content">
+
+        <router-outlet></router-outlet>
+
+    </div>
+</mat-drawer-container>

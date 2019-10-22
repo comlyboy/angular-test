@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./states.component.css']
 })
 export class StatesComponent implements OnInit {
-
+  totalStates: number = 37;
   constructor() { }
 
   ngOnInit() {

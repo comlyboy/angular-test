@@ -1,6 +1,6 @@
 <mat-drawer-container class="containerr" autosize>
 
-    <mat-toolbar class="bg-info my-toolbar container-fluid">
+    <mat-toolbar class="my-toolbar container-fluid">
         <a class="pointerr ml-3 text-white" (click)="drawer.toggle()">
             <mat-icon>dehaze</mat-icon>
         </a>
@@ -21,7 +21,10 @@
     <mat-drawer #drawer class="sidebar lead font-weight-bold" mode="over">
 
         <div class="sidebar-content">
-            <img src="../assets/logo_.jpg" alt="" srcset="">
+            <div class="text-center mt-3">
+                <img src="../assets/logo.png" alt="logo_" srcset="">
+
+            </div>
             <hr>
             <ul>
                 <li matRipple (click)="drawer.close()"><a routerLink="/dashboard" routerLinkActive="current">

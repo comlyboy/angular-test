@@ -20,6 +20,21 @@ a:hover {
     text-decoration: none !important;
 }
 
+a {
+    color: blue;
+}
+
 .pointerr {
     cursor: pointer;
+}
+
+.my-table-design {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+}
+
+.my-design {
+    /* #0081bf */
+    background-color: #142644 !important;
+    border-radius: 0px !important;
 }

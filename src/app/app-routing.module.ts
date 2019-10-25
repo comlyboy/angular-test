@@ -10,14 +10,25 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { MessagesComponent } from './messages/messages.component';
 import { InteractionsComponent } from './interactions/interactions.component';
 
+import { BankDetailsComponent } from './banks/bank-details/bank-details.component';
+import { StateDetailsComponent } from './states/state-details/state-details.component';
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
+
   { path: 'customers', component: CustomersComponent },
+
   { path: 'states', component: StatesComponent },
+  { path: 'state/lagos-state', component: StateDetailsComponent },
+
   { path: 'banks', component: BanksComponent },
+  { path: "bank/first-bank", component: BankDetailsComponent },
+
   { path: 'messages', component: MessagesComponent },
+
   { path: 'interactions', component: InteractionsComponent },
+
   { path: 'transactions', component: TransactionsComponent },
 
 ];

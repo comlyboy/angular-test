@@ -36,6 +36,8 @@ import { MatRippleModule, MatNativeDateModule } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { BankDetailsComponent } from './banks/bank-details/bank-details.component';
+import { StateDetailsComponent } from './states/state-details/state-details.component';
 
 
 
@@ -49,7 +51,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     StatesComponent,
     TransactionsComponent,
     MessagesComponent,
-    InteractionsComponent
+    InteractionsComponent,
+    BankDetailsComponent,
+    StateDetailsComponent
   ],
   imports: [
     FormsModule,

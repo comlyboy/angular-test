@@ -1,0 +1,118 @@
+<div class="container-fluid px-5">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-transparent my-3 row py-1">
+      <li class="breadcrumb-item h5 font-weight-bold text-info mb-0"><a routerLink="/dashboard">
+          Dashboard
+        </a></li>
+      <li class="breadcrumb-item h5 font-weight-bold text-info mb-0"><a routerLink="/banks">
+          Banks
+        </a></li>
+      <!-- dynamic data below -->
+      <li class="breadcrumb-item active h5 mb-0" aria-current="page">First bank plc
+      </li>
+    </ol>
+  </nav>
+</div>
+
+
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-6">
+      <div class="card my-2">
+        <div class="card-body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptatem asperiores tempore, totam fuga
+          delectus? Accusamus quaerat nisi blanditiis enim quod reprehenderit natus maxime? Animi sint asperiores quam
+          nam a.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptatem asperiores tempore, totam fuga
+          delectus? Accusamus quaerat nisi blanditiis enim quod reprehenderit natus maxime? Animi sint asperiores quam
+          nam a.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptatem asperiores tempore, totam fuga
+          delectus? Accusamus quaerat nisi blanditiis enim quod reprehenderit natus maxime? Animi sint asperiores quam
+          nam a.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptatem asperiores tempore, totam fuga
+          delectus? Accusamus quaerat nisi blanditiis enim quod reprehenderit natus maxime? Animi sint asperiores quam
+          nam a.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptatem asperiores tempore, totam fuga
+          delectus? Accusamus quaerat nisi blanditiis enim quod reprehenderit natus maxime? Animi sint asperiores quam
+          nam a.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="card my-2">
+        <div class="card-body">
+          <div style="display: block">
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+              [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <div class="container-fluid mt-3">
+        <div class="row p-0 mb-2">
+          <div class="col-12">
+            <table class="table table-hover table-striped table-responsive-md table-bordered">
+              <thead class="my-design text-white text-center">
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Bank Code</th>
+                  <th scope="col">Actual WTH (<span>&#8358;</span>)</th>
+                  <th scope="col">Expected WTH (<span>&#8358;</span>)</th>
+                  <th scope="col">Customers</th>
+                </tr>
+
+              </thead>
+              <tbody id="bank-table-list" class="bg-white">
+
+                <tr>
+                  <td>Lorem Lorem</td>
+                  <td>567945</td>
+                  <td class="text-right">69425367564</td>
+                  <td class="text-right">65746353523</td>
+                  <td>Lorem</td>
+
+                </tr>
+
+                <tr>
+                  <td>Lorem Lorem</td>
+                  <td>567945</td>
+                  <td class="text-right">69425367564</td>
+                  <td class="text-right">65746353523</td>
+                  <td>Lorem</td>
+
+                </tr>
+
+                <tr>
+                  <td>Lorem Lorem</td>
+                  <td>567945</td>
+                  <td class="text-right">69425367564</td>
+                  <td class="text-right">65746353523</td>
+                  <td>Lorem</td>
+
+                </tr>
+
+                <tr>
+                  <td>Lorem Lorem</td>
+                  <td>567945</td>
+                  <td class="text-right">69425367564</td>
+                  <td class="text-right">65746353523</td>
+                  <td>Lorem</td>
+
+                </tr>
+
+              </tbody>
+            </table>
+
+            <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+            </mat-paginator>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

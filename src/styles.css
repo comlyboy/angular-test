@@ -21,7 +21,7 @@ a:hover {
 }
 
 a {
-    color: blue;
+    color: rgb(25, 25, 128);
 }
 
 .pointerr {
@@ -35,6 +35,6 @@ a {
 
 .my-design {
     /* #0081bf */
-    background-color: #142644 !important;
+    background-color: #100c31 !important;
     border-radius: 0px !important;
 }

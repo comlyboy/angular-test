@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { ChartsModule } from 'ng2-charts';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -54,6 +57,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     AppRoutingModule,
     BrowserAnimationsModule,
 
+    ChartsModule,
 
     // Materials
     MatInputModule,

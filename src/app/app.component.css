@@ -6,7 +6,7 @@ main {
 .my-toolbar {
     padding: 0;
     height: 50px;
-    background-color: #142644;
+    background-color: #100c31;
     /* z-index: 99999 !important; */
     /* background: linear-gradient(60deg, #118ca4, #54e4b6); */
 }
@@ -37,7 +37,7 @@ main {
 }
 
 .sidebar {
-    background-color: #142644;
+    background-color: #100c31;
     /* z-index: -99999 !important; */
 }
 
@@ -50,23 +50,21 @@ main {
     padding: 20px 20px;
     text-decoration: none;
     border-bottom: 1px solid rgb(120, 142, 194);
-    color: #b8c7ce;
+    color: #dbe3e7;
 }
 
 .current {
-    background: #b8c7ce;
-    color: #3f6184 !important;
+    background: #dfe6e9;
+    color: #2a226f !important;
 }
 
 .current:hover {
-    background-color: #b8c7ce !important;
-    /* border-top-right-radius: 40%;
-    border-bottom-right-radius: 40%; */
+    background-color: #dfe6e9 !important;
 }
 
 .sidebar a:hover {
-    background-color: #b8c7ceb3;
-    color: #3f6184;
+    background-color: #d6dbddf6;
+    color: #2a226f;
     text-decoration: none;
 }
 

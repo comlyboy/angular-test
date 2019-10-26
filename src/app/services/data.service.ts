@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 // import  data  from '../../assets/data/accounts.json';
 
 
@@ -7,6 +8,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService {
+  users: any[] = []
+
+  private dataUpdated = new Subject<{
+    dData: any[];
+  }>();
+
+
+  getAllDataListener() {
+    return this.dataUpdated.asObservable();
+  }
+
 
   datas: any[] = [
     {
@@ -580,7 +592,20 @@ export class DataService {
       "wht": "5,500.00"
     }
   ]
+
   constructor() { }
+
+
+  getDatas() {
+    this.users = this.datas
+    this.dataUpdated.next({
+      dData: [...this.datas]
+    });
+    console.log(this.datas)
+  }
+
+
+
 
 
 

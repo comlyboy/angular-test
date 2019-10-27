@@ -14,6 +14,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
   users: any[] = []
 
 
+  banks: string[] = [];
+  states: string[] = [];
+  wht: number[] = []
+  whtt: number[] = []
+  
   private dashSub: Subscription;
 
   public barChartOptions: ChartOptions = {
@@ -27,14 +32,34 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
     }
   };
-  public barChartLabels: Label[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels: Label[] = this.states;
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   // public barChartPlugins = [pluginDataLabels];
 
   public barChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
+    { data: this.wht, label: 'Series B' }
+  ];
+
+
+  public barrChartOptions: ChartOptions = {
+    responsive: true,
+    // We use these empty structures as placeholders for dynamic theming.
+    scales: { xAxes: [{}], yAxes: [{}] },
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+      }
+    }
+  };
+  public barrChartLabels: Label[] = this.banks;
+  public barrChartType: ChartType = 'bar';
+  public barrChartLegend = true;
+  // public barrChartPlugins = [pluginDataLabels];
+
+  public barrChartData: ChartDataSets[] = [
+    { data: this.wht, label: 'Series B' }
   ];
 
 
@@ -617,28 +642,28 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    let states_data = {};
-    let r = []
-    let result = this.datas.reduce(function (r, o) {
-      let key = o.state;
-      // console.log('====key=== ' + key);
+    this.datas.map((user) => {
+      this.states.push(user.state)
+      // console.log(user.state);
+      // return user.states
+    })
+    this.datas.map((user) => {
+      this.wht.push(user.wht)
+    })
 
-      if (!states_data[key]) {
-        states_data[key] = { "Bank": key, "wht": 0 };//Object.assign({}, o); // create a copy of o
-        r.push(states_data[key]);
-      } else {
-        states_data[key].wht += parseFloat(o.wht);
-      }
 
-      return r;
-    }, []);
 
-    // print('==finish==')
-    console.log(result[0]);
-    result.forEach(roe   => {
-const z 
-    });
-    // console.log(this.datas)
+
+    this.datas.map((user) => {
+      this.banks.push(user.bank)
+      // console.log(user.state);
+      // return user.states
+    })
+    this.datas.map((user) => {
+      this.whtt.push(user.wht)
+    })
+
+
   }
 
   ngOnDestroy() {

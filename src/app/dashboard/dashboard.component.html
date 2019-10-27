@@ -12,10 +12,24 @@
 
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div class="card my-2 text-muted">
+        <div class="card-header">States</div>
         <div class="card-body">
           <div style="display: block">
             <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
               [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <div class="card my-2 text-muted">
+        <div class="card-header">Banks</div>
+        <div class="card-body">
+          <div style="display: block">
+            <canvas baseChart [datasets]="barrChartData" [labels]="barrChartLabels" [options]="barrChartOptions"
+              [plugins]="barrChartPlugins" [legend]="barrChartLegend" [chartType]="barrChartType">
             </canvas>
           </div>
         </div>

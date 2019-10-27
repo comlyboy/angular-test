@@ -634,7 +634,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }, []);
 
     // print('==finish==')
-    console.log(result);
+    console.log(result[0]);
+    result.forEach(roe   => {
+const z 
+    });
     // console.log(this.datas)
   }
 

@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   // public barChartPlugins = [pluginDataLabels];
 
   public barChartData: ChartDataSets[] = [
-    { data: this.wht, label: 'Series B' }
+    { data: this.wht }
   ];
 
 
@@ -59,7 +59,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   // public barrChartPlugins = [pluginDataLabels];
 
   public barrChartData: ChartDataSets[] = [
-    { data: this.wht, label: 'Series B' }
+    { data: this.wht }
   ];
 
 

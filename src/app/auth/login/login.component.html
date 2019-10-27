@@ -1,62 +1,79 @@
 <div class="container mt-5 p-3 d-flex justify-content-center">
-    <div class="card my-shadow-design text-center" style="width: 25rem;">
-        <div class="card-header h5 my-design text-white">User signin</div>
-        <div class="card-body px-5 bg-white text-muted">
+    <div>
 
-            <img class="login-img" src="../../../assets//logo.png" alt="logo_" srcset="">
-            <div class="row mb-4 mt-3">
-                <!-- <div class="col-6"> Language</div> -->
-                <div class="col-12">
-                    <div class="input-group my-1">
-                        <select class="form-control text-muted border-primary" (change)="languageFilter($event.target.value)">
-                            <option  value="">Select language</option>
-                            <option selected value="EN">English</option>
-                            <option value="FR">French</option>
-                            <option value="FR">French</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+        <div class="text-center">
+            <img class="login-img text-center mb-4" src="../../../assets/BRADLEY_.png" alt="logo_" srcset="">
+        </div>
 
-            <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
 
-                <input type="text" class="form-control form-control-lg mt-2 border-primary" name="inputUserName" ngModel
-                    minlength="3" autocomplete="off" placeholder="Username..." #userName="ngModel" required>
-                <div class="alert alert-danger p-1 m-0" *ngIf="userName.touched && !userName.valid">
-                    <div *ngIf="userName.errors.required">
-                        This field is required.
-                    </div>
-                    <div *ngIf="userName.errors.minlength">
-                        Minimum 3 characters needed.
-                    </div>
-                </div>
+        <div class="card text-center" style="width: 25rem;">
+            <!-- <div class="card-header h5 my-design text-white">User signin</div> -->
 
-                <input type="password" class="form-control form-control-lg mt-4 border-primary" name="inputPassword"
-                    ngModel minlength="6" placeholder="Password..." #password="ngModel" required>
-                <div class="alert alert-danger p-1 m-0" *ngIf="password.touched && !password.valid">
-                    <div *ngIf="password.errors.required">
-                        This field is required.
+            <div class="card-body px-5 bg-white text-muted">
+
+                <div class="row mt-3 text-left mb-5 pb-3">
+                    <div class="col-4 d-flex align-items-center">
+                        <div class="h6">
+                            Language:
+                        </div>
                     </div>
-                    <div *ngIf="password.errors.minlength">
-                        Minimum 6 characters needed.
+                    <div class="col-5">
+                        <div class="input-group my-1">
+                            <select class="form-control text-muted border-primary rounded-0"
+                                (change)="languageFilter($event.target.value)">
+                                <option selected value="EN">English</option>
+                                <option value="FR">French</option>
+                                <option value="DT">Dutch</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        
                     </div>
                 </div>
 
-                <div class="form-group form-check text-left mt-4 text-muted">
-                    <input type="checkbox" class="form-check-input">
-                    <label class="form-check-label">Keep me signed in?</label>
-                </div>
+                <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
 
-                <!-- <button mat-raised-button class="btn btn-block btn-lg btn-info mt-2 py-1" type="submit"
+                    <input type="text" class="form-control form-control-lg mt-2 border-primary rounded-0"
+                        name="inputUserName" ngModel minlength="3" autocomplete="off" placeholder="Username..."
+                        #userName="ngModel" required>
+                    <div class="alert alert-danger p-1 m-0" *ngIf="userName.touched && !userName.valid">
+                        <div *ngIf="userName.errors.required">
+                            This field is required.
+                        </div>
+                        <div *ngIf="userName.errors.minlength">
+                            Minimum 3 characters needed.
+                        </div>
+                    </div>
+
+                    <input type="password" class="form-control form-control-lg mt-4 border-primary rounded-0"
+                        name="inputPassword" ngModel minlength="6" placeholder="Password..." #password="ngModel"
+                        required>
+                    <div class="alert alert-danger p-1 m-0" *ngIf="password.touched && !password.valid">
+                        <div *ngIf="password.errors.required">
+                            This field is required.
+                        </div>
+                        <div *ngIf="password.errors.minlength">
+                            Minimum 6 characters needed.
+                        </div>
+                    </div>
+
+                    <div class="form-group form-check text-left mt-4 text-muted">
+                        <input type="checkbox" class="form-check-input">
+                        <label class="form-check-label">Keep me signed in?</label>
+                    </div>
+
+                    <!-- <button mat-raised-button class="btn btn-block btn-lg btn-info mt-2 py-1" type="submit"
                     [disabled]="!loginForm.valid">Sign In</button> -->
 
-                <!-- below is a sample button -->
-                <button mat-raised-button class="btn btn-block mb-3 btn-lg my-design text-white mt-2 py-1"
-                    routerLink="/dashboard" type="button" [disabled]="loginForm.valid">Sign In</button>
+                    <!-- below is a sample button -->
+                    <button mat-raised-button class="btn btn-block mb-3 btn-lg my-design text-white mt-2 py-1"
+                        routerLink="/dashboard" type="button" [disabled]="loginForm.valid">Sign In</button>
 
 
-                <a class="h6 text-info" routerLink="/register">forgot password?</a>
-            </form>
+                    <a class="h6 font-italic text-muted" routerLink="/register">forgot password?</a>
+                </form>
+            </div>
         </div>
     </div>
 </div>

@@ -1,17 +1,18 @@
 <mat-drawer-container class="containerr" autosize>
 
     <mat-toolbar class="my-toolbar container-fluid">
-        <a class="pointerr ml-3 text-white" (click)="drawer.toggle()">
+        <a class="pointerr ml-4" (click)="drawer.toggle()">
             <mat-icon>dehaze</mat-icon>
         </a>
-        <p class="text-white mb-0 ml-5 h5">My App</p>
-        <button class="btn btn-lg text-white ml-auto py-0 mr-5" mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
+        <p class="font-weight-bold mb-0 ml-5 h5">{{ title }}</p>
+        <button class="btn btn-lg ml-auto py-0 mr-5" mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>account_circle</mat-icon>
+            <mat-icon>arrow_drop_down</mat-icon>
         </button>
         <mat-menu #menu="matMenu" xPosition="before">
             <ng-template matMenuContent>
                 <button mat-button (click)="onLogout()" class="ml-2">
-                    <mat-icon>power_settings_new</mat-icon> Logout
+                    <mat-icon class="mr-2">power_settings_new</mat-icon> Logout
                 </button>
             </ng-template>
         </mat-menu>
@@ -22,48 +23,50 @@
 
         <div class="sidebar-content">
             <div class="text-center mt-3">
-                <img src="../assets/logo.png" alt="logo_" srcset="">
+                <p class="text-white mb-0 font-weight-bold h5">{{ title }}</p>
 
             </div>
             <hr>
             <ul>
                 <li matRipple (click)="drawer.close()"><a routerLink="/dashboard" routerLinkActive="current">
-                        <mat-icon class="mr-2">dashboard</mat-icon>Dashboard
+                        <mat-icon class="mr-3">dashboard</mat-icon>Dashboard
                     </a></li>
 
                 <li matRipple (click)="drawer.close()"><a routerLink="/states" routerLinkActive="current">
-                        <mat-icon class="mr-2">location_on</mat-icon>States
+                        <mat-icon class="mr-3">location_on</mat-icon>States
                     </a></li>
 
                 <li matRipple (click)="drawer.close()"><a routerLink="/banks" routerLinkActive="current">
-                        <mat-icon class="mr-2">business</mat-icon>
+                        <mat-icon class="mr-3">business</mat-icon>
                         Banks
                     </a></li>
 
                 <li matRipple (click)="drawer.close()"><a routerLink="/customers" routerLinkActive="current">
-                        <mat-icon class="mr-2">supervisor_account</mat-icon>
+                        <mat-icon class="mr-3">supervisor_account</mat-icon>
                         Customers
                     </a></li>
 
                 <li matRipple (click)="drawer.close()"><a routerLink="/transactions" routerLinkActive="current">
-                        <mat-icon class="mr-2">trending_up</mat-icon>
+                        <mat-icon class="mr-3">trending_up</mat-icon>
                         Transactions
                     </a></li>
 
                 <li matRipple (click)="drawer.close()"><a routerLink="/interactions" routerLinkActive="current">
-                        <mat-icon class="mr-2">question_answer</mat-icon>
+                        <mat-icon class="mr-3">question_answer</mat-icon>
                         Interactions
                     </a></li>
 
                 <li matRipple (click)="drawer.close()"><a routerLink="/messages" routerLinkActive="current">
-                        <mat-icon class="mr-2">mail</mat-icon>
+                        <mat-icon class="mr-3">mail</mat-icon>
                         Messages
                     </a></li>
             </ul>
             <div class="text-center mt-5 pt-5">
                 <a matRipple (click)="onLogout()" (click)="drawer.close()"
-                    class="mt-4 lead font-weight-bold my-ppointer border-0"><i
-                        class="fa fa-power-off mr-2"></i>Logout</a>
+                    class="mt-4 bg-danger text-white lead font-weight-bold my-ppointer border-0">
+                    <mat-icon class="mr-3">power_settings_new</mat-icon>
+                    Logout
+                </a>
             </div>
         </div>
 

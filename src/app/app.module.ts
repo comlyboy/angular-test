@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ChartsModule } from 'ng2-charts';
+import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -62,6 +63,7 @@ import { StateDetailsComponent } from './states/state-details/state-details.comp
     BrowserAnimationsModule,
 
     ChartsModule,
+    NgxChartsModule,
 
     // Materials
     MatInputModule,

@@ -1,80 +1,161 @@
-<div class="container-fluid px-5">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb bg-transparent my-4 row py-1">
-      <li class="breadcrumb-item active h5" aria-current="page">Dashboard
-      </li>
-    </ol>
-  </nav>
-</div>
+<mat-drawer-container class="containerr" autosize>
 
-<div class="container-fluid">
-  <div class="row">
+  <mat-toolbar class="my-toolbar container-fluid">
+    <a class="pointerr ml-4" (click)="drawer.toggle()">
+      <mat-icon>dehaze</mat-icon>
+    </a>
+    <p class="font-weight-bold mb-0 ml-5 h5">{{ title }}</p>
+    <button class="btn btn-lg ml-auto py-0 mr-5" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" xPosition="before">
+      <ng-template matMenuContent>
+        <button mat-button (click)="onLogout()" class="ml-2">
+          <mat-icon class="mr-2">power_settings_new</mat-icon> Logout
+        </button>
+      </ng-template>
+    </mat-menu>
+  </mat-toolbar>
+  <!-- mode="side" -->
 
-    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-      <div class="card my-2 text-muted text-center">
-        <div class="card-body">
-          <div class="h5 mb-5">Banks withholding tax</div>
-          <div style="display: block">
-            <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="data_banks" [gradient]="gradient"
-              [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
-              [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel">
-            </ngx-charts-bar-vertical>
-          </div>
-        </div>
+  <mat-drawer #drawer class="sidebar lead font-weight-bold" mode="side" opened>
+
+    <div class="sidebar-content">
+      <div class="text-center mt-3">
+        <p class="text-white mb-0 font-weight-bold h5">{{ title }}</p>
+
+      </div>
+      <hr>
+      <ul>
+        <li matRipple (click)="drawer.close()"><a routerLink="/dashboard" routerLinkActive="current">
+            <mat-icon class="mr-3">dashboard</mat-icon>Dashboard
+          </a></li>
+
+        <li matRipple (click)="drawer.close()"><a routerLink="/states" routerLinkActive="current">
+            <mat-icon class="mr-3">location_on</mat-icon>States
+          </a></li>
+
+        <li matRipple (click)="drawer.close()"><a routerLink="/banks" routerLinkActive="current">
+            <mat-icon class="mr-3">business</mat-icon>
+            Banks
+          </a></li>
+
+        <li matRipple (click)="drawer.close()"><a routerLink="/customers" routerLinkActive="current">
+            <mat-icon class="mr-3">supervisor_account</mat-icon>
+            Customers
+          </a></li>
+
+        <li matRipple (click)="drawer.close()"><a routerLink="/transactions" routerLinkActive="current">
+            <mat-icon class="mr-3">trending_up</mat-icon>
+            Transactions
+          </a></li>
+
+        <li matRipple (click)="drawer.close()"><a routerLink="/interactions" routerLinkActive="current">
+            <mat-icon class="mr-3">question_answer</mat-icon>
+            Interactions
+          </a></li>
+
+        <li matRipple (click)="drawer.close()"><a routerLink="/messages" routerLinkActive="current">
+            <mat-icon class="mr-3">mail</mat-icon>
+            Messages
+          </a></li>
+      </ul>
+      <div class="text-center mt-5 pt-5">
+        <a matRipple (click)="onLogout()" (click)="drawer.close()"
+          class="mt-4 bg-danger text-white lead font-weight-bold my-ppointer border-0">
+          <mat-icon class="mr-3">power_settings_new</mat-icon>
+          Logout
+        </a>
       </div>
     </div>
 
-    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-      <div class="card my-2 text-muted text-center">
-        <div class="card-body">
-          <div class="h5 mb-5">States withholding tax</div>
-          <div style="display: block">
-            <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="data_states" [gradient]="gradient"
-              [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
-              [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel">
-            </ngx-charts-bar-vertical>
-          </div>
-        </div>
-      </div>
+  </mat-drawer>
+  <div class="sidenav-content">
+
+    <div class="container-fluid px-5">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent my-4 row py-1">
+          <li class="breadcrumb-item active h5" aria-current="page">Dashboard
+          </li>
+        </ol>
+      </nav>
     </div>
 
+    <div class="container-fluid">
+      <div class="row">
 
-
-
-    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
-      <div class="card my-2 text-muted text-center">
-        <div class="card-body">
-          <div class="h5 mb-5">Account type</div>
-          <div style="display: block">
-            <ngx-charts-pie-chart [view]="view" [scheme]="colorScheme" [results]="data_acc_type"
-              [animations]="animations" [legend]="showLegend" [legendTitle]="legendTitle"
-              [legendPosition]="legendPosition" [explodeSlices]="explodeSlices" [labels]="showLabels"
-              [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
-              [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" [tooltipText]="pieTooltipText"
-              (dblclick)="dblclick($event)" (select)="select($event)" (activate)="activate($event)"
-              (deactivate)="deactivate($event)">
-            </ngx-charts-pie-chart>
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="card my-2 text-muted text-center">
+            <div class="card-body">
+              <div class="h5 mb-5">Banks withholding tax</div>
+              <div style="display: block">
+                <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="data_banks"
+                  [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel">
+                </ngx-charts-bar-vertical>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
-      <div class="card my-2 text-muted text-center">
-        <div class="card-body">
-          <div class="h5 mb-5">Account designation</div>
-          <div style="display: block">
-            <ngx-charts-pie-chart [view]="view" [scheme]="colorScheme" [results]="data_design" [animations]="animations"
-              [legend]="showLegend" [legendTitle]="legendTitle" [legendPosition]="legendPosition"
-              [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth"
-              (legendLabelClick)="onLegendLabelClick($event)" [gradient]="gradient" [tooltipDisabled]="tooltipDisabled"
-              [tooltipText]="pieTooltipText" (dblclick)="dblclick($event)" (select)="select($event)"
-              (activate)="activate($event)" (deactivate)="deactivate($event)">
-            </ngx-charts-pie-chart>
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="card my-2 text-muted text-center">
+            <div class="card-body">
+              <div class="h5 mb-5">States withholding tax</div>
+              <div style="display: block">
+                <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="data_states"
+                  [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend"
+                  [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel">
+                </ngx-charts-bar-vertical>
+              </div>
+            </div>
           </div>
         </div>
+
+
+
+
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
+          <div class="card my-2 text-muted text-center">
+            <div class="card-body">
+              <div class="h5 mb-5">Account type</div>
+              <div style="display: block">
+                <ngx-charts-pie-chart [view]="view" [scheme]="colorScheme" [results]="data_acc_type"
+                  [animations]="animations" [legend]="showLegend" [legendTitle]="legendTitle"
+                  [legendPosition]="legendPosition" [explodeSlices]="explodeSlices" [labels]="showLabels"
+                  [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+                  [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" [tooltipText]="pieTooltipText"
+                  (dblclick)="dblclick($event)" (select)="select($event)" (activate)="activate($event)"
+                  (deactivate)="deactivate($event)">
+                </ngx-charts-pie-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
+          <div class="card my-2 text-muted text-center">
+            <div class="card-body">
+              <div class="h5 mb-5">Account designation</div>
+              <div style="display: block">
+                <ngx-charts-pie-chart [view]="view" [scheme]="colorScheme" [results]="data_design"
+                  [animations]="animations" [legend]="showLegend" [legendTitle]="legendTitle"
+                  [legendPosition]="legendPosition" [explodeSlices]="explodeSlices" [labels]="showLabels"
+                  [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+                  [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" [tooltipText]="pieTooltipText"
+                  (dblclick)="dblclick($event)" (select)="select($event)" (activate)="activate($event)"
+                  (deactivate)="deactivate($event)">
+                </ngx-charts-pie-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
   </div>
-</div>
+</mat-drawer-container>

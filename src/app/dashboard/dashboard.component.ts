@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 // import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   users: any[] = []
 
 
@@ -60090,7 +60090,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     this.data_states = result
-    console.log(result);
+    // console.log(result);
 
 
 
@@ -60112,18 +60112,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
     this.data_banks = result
-    console.log(result);
-
-  }
-
-
-  ngAfterViewInit() {
+    // console.log(result);
 
   }
 
 
   ngOnDestroy() {
-    this.dashSub.unsubscribe();
+    // this.dashSub.unsubscribe();
   }
 
 }

@@ -66,11 +66,51 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       .subscribe((Ddata: { datas: any[] }) => {
         this.datas = Ddata.datas;
         // console.log("get data")
-        console.log(Ddata.datas)
+        // console.log(Ddata.datas)
       });
 
     setTimeout(() => {
-    }, 3000);
+      let states_data = {};
+      let r = []
+      let result = this.datas.reduce(function (r, o) {
+        let key = o.state;
+
+        if (!states_data[key]) {
+          states_data[key] = { "name": key, "value": 0 };//Object.assign({}, o); // create a copy of o
+          r.push(states_data[key]);
+        } else {
+          states_data[key].value += parseFloat(o.withholdingTaxAmount);
+        }
+
+        return r;
+      }, []);
+
+
+      this.data_states = result
+      // console.log(result);
+
+
+
+      let banks_data = {};
+      let rr = []
+      let result_banks = this.datas.reduce(function (r, o) {
+        let key = o.bank;
+
+        if (!banks_data[key]) {
+          banks_data[key] = { "name": key, "value": 0 };//Object.assign({}, o); // create a copy of o
+          r.push(banks_data[key]);
+        } else {
+          banks_data[key].value += parseFloat(o.withholdingTaxAmount);
+        }
+
+        return rr;
+      }, []);
+
+
+      this.data_banks = result_banks
+      // console.log(result);
+
+    }, 1000);
 
   }
 
@@ -91,46 +131,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-
-    let states_data = {};
-    let r = []
-    let result = this.datas.reduce(function (r, o) {
-      let key = o.state;
-
-      if (!states_data[key]) {
-        states_data[key] = { "name": key, "value": 0 };//Object.assign({}, o); // create a copy of o
-        r.push(states_data[key]);
-      } else {
-        states_data[key].value += parseFloat(o.withholdingTaxAmount);
-      }
-
-      return r;
-    }, []);
-
-
-    this.data_states = result
-    // console.log(result);
-
-
-
-    let banks_data = {};
-    let rr = []
-    let result_banks = this.datas.reduce(function (r, o) {
-      let key = o.bank;
-
-      if (!banks_data[key]) {
-        banks_data[key] = { "name": key, "value": 0 };//Object.assign({}, o); // create a copy of o
-        r.push(banks_data[key]);
-      } else {
-        banks_data[key].value += parseFloat(o.withholdingTaxAmount);
-      }
-
-      return rr;
-    }, []);
-
-
-    this.data_banks = result_banks
-    // console.log(result);
 
   }
 

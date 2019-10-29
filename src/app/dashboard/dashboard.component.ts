@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 
-// import { DataService } from '../../../services/data.service';
+import { DashboardService } from './dashboard.service';
 import { Subscription } from 'rxjs';
 // import { datas } from './data';
 
@@ -9,8 +9,8 @@ import { Subscription } from 'rxjs';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
-
+export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
+  datas: any[] = []
   title: string = "BRADLEY";
 
   banks: string[] = [];
@@ -54,19 +54,28 @@ export class DashboardComponent implements OnInit, OnDestroy {
   };
 
   constructor(
-    public dataService: DataService,
+    public dashboardService: DashboardService,
   ) { }
 
-  ngOnInit() {
 
-    // this.dataService.getDatas()
+  initContent() {
+
+    this.dashboardService.getDatas()
     // console.log("get data")
-    // this.dashSub = this.dataService.getAllDataListener()
-    //   .subscribe((Ddata: { datas: [] }) => {
-    //     // this.products = productsData.products;
-    //     console.log("get data")
-    //     console.log(Ddata.datas)
-    //   });
+    this.dashSub = this.dashboardService.getDataUpdateListener()
+      .subscribe((Ddata: { datas: any[] }) => {
+        this.datas = Ddata.datas;
+        // console.log("get data")
+        console.log(Ddata.datas)
+      });
+
+    setTimeout(() => {
+    }, 3000);
+
+  }
+
+  ngOnInit() {
+    this.initContent();
 
     // this.datas.map((user) => {
     //   this.states.push(user.state)
@@ -77,6 +86,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
     //   this.wht.push(user.wht)
     // })
 
+
+
+  }
+
+  ngAfterViewInit() {
 
     let states_data = {};
     let r = []
@@ -96,7 +110,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     this.data_states = result
     // console.log(result);
-
 
 
 
@@ -123,7 +136,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy() {
-    // this.dashSub.unsubscribe();
+    this.dashSub.unsubscribe();
   }
 
 }

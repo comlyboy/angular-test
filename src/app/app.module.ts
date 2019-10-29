@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { ChartsModule } from 'ng2-charts';
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 
@@ -58,6 +60,7 @@ import { StateDetailsComponent } from './states/state-details/state-details.comp
   ],
   imports: [
     FormsModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

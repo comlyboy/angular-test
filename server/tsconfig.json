@@ -10,6 +10,7 @@
     "importHelpers": true,
     "esModuleInterop": true,
     "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
     "target": "es6",
     "strict": true,
     "typeRoots": [

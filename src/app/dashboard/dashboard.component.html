@@ -4,14 +4,14 @@
     <a class="pointerr ml-4" (click)="drawer.toggle()">
       <mat-icon>dehaze</mat-icon>
     </a>
-    <p class="font-weight-bold mb-0 ml-5 h5">{{ title }}</p>
+    <!-- <p class="font-weight-bold mb-0 ml-5 h5">{{ title }}</p> -->
     <button class="btn btn-lg ml-auto py-0 mr-5" mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>account_circle</mat-icon>
       <mat-icon>arrow_drop_down</mat-icon>
     </button>
     <mat-menu #menu="matMenu" xPosition="before">
       <ng-template matMenuContent>
-        <button mat-button (click)="onLogout()" class="ml-2">
+        <button mat-button  routerLink="/">
           <mat-icon class="mr-2">power_settings_new</mat-icon> Logout
         </button>
       </ng-template>

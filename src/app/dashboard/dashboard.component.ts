@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class DashboardComponent implements OnInit, OnDestroy {
   users: any[] = []
 
+  title: string = "BRADLEY";
 
   banks: string[] = [];
   states: string[] = [];
@@ -60095,23 +60096,23 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
 
 
-    let states_data = {};
-    let r = []
-    let result = this.datas.reduce(function (r, o) {
+    let banks_data = {};
+    let rr = []
+    let result_banks = this.datas.reduce(function (r, o) {
       let key = o.bank;
 
-      if (!states_data[key]) {
-        states_data[key] = { "name": key, "value": 0 };//Object.assign({}, o); // create a copy of o
-        r.push(states_data[key]);
+      if (!banks_data[key]) {
+        banks_data[key] = { "name": key, "value": 0 };//Object.assign({}, o); // create a copy of o
+        r.push(banks_data[key]);
       } else {
-        states_data[key].value += parseFloat(o.withholdingTaxAmount);
+        banks_data[key].value += parseFloat(o.withholdingTaxAmount);
       }
 
-      return r;
+      return rr;
     }, []);
 
 
-    this.data_banks = result
+    this.data_banks = result_banks
     // console.log(result);
 
   }

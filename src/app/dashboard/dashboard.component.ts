@@ -22,48 +22,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private dashSub: Subscription;
 
-  public barChartOptions: ChartOptions = {
-    responsive: true,
-    // We use these empty structures as placeholders for dynamic theming.
-    scales: { xAxes: [{}], yAxes: [{}] },
-    plugins: {
-      datalabels: {
-        anchor: 'end',
-        align: 'end',
-      }
-    }
-  };
-  public barChartLabels: Label[] = this.states;
-  public barChartType: ChartType = 'bar';
-  public barChartLegend = true;
-  // public barChartPlugins = [pluginDataLabels];
-
-  public barChartData: ChartDataSets[] = [
-    { data: this.wht, label: "States" }
-  ];
-
-
-  public barrChartOptions: ChartOptions = {
-    responsive: true,
-    // We use these empty structures as placeholders for dynamic theming.
-    scales: { xAxes: [{}], yAxes: [{}] },
-    plugins: {
-      datalabels: {
-        anchor: 'end',
-        align: 'end',
-      }
-    }
-  };
-  public barrChartLabels: Label[] = this.banks;
-  public barrChartType: ChartType = 'bar';
-  public barrChartLegend = true;
-  // public barrChartPlugins = [pluginDataLabels];
-
-  public barrChartData: ChartDataSets[] = [
-    { data: this.wht, label: "Banks" }
-  ];
-
-
   datas = [
     {
       "accountNumber": "9869073799",
@@ -149,18 +107,18 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       "withholdingTaxRate": "10",
       "withholdingTaxAmount": "43645.96"
     },
-    {
-      "accountNumber": "5817408769",
-      "accountDesignation": "NGO",
-      "accountType": "Other",
-      "bank": "Jaiz Bank",
-      "state": "Edo",
-      "balance": "4218994210",
-      "interestRate": "4",
-      "interestAmount": "462355.53",
-      "withholdingTaxRate": "10",
-      "withholdingTaxAmount": "46235.55"
-    },
+    // {
+    //   "accountNumber": "5817408769",
+    //   "accountDesignation": "NGO",
+    //   "accountType": "Other",
+    //   "bank": "Jaiz Bank",
+    //   "state": "Edo",
+    //   "balance": "4218994210",
+    //   "interestRate": "4",
+    //   "interestAmount": "462355.53",
+    //   "withholdingTaxRate": "10",
+    //   "withholdingTaxAmount": "46235.55"
+    // },
     {
       "accountNumber": "8245785466",
       "accountDesignation": "Individual",
@@ -60068,8 +60026,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   ]
 
 
-  data: any[];
+  data_states: any[];
   data_banks: any[];
+  data_acc_type: any[];
+  data_design: any[];
 
   // view: any[] = [1200, 600];
 
@@ -60085,42 +60045,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   colorScheme = {
     domain: [
-      "#5AA454",
-      "#A10A28",
-      "#C7B42C",
-      "#009999",
-      "#A10A28",
-      "#C7B42C",
-      "#A10A28",
-      "#5AA454",
-      "#A10A28",
-      "#C7B42C",
-      "#009999",
-      "#A10A28",
-      "#C7B42C",
-      "#A10A28",
-      "#5AA454",
-      "#A10A28",
-      "#C7B42C",
-      "#009999",
-      "#A10A28",
-      "#C7B42C",
-      "#A10A28",
-      "#5AA454",
-      "#A10A28",
-      "#C7B42C",
-      "#009999",
-      "#A10A28",
-      "#C7B42C",
-      "#wr0A28",
-      "#5AA454",
-      "#A10A28",
-      "#C00B42C",
-      "#009999",
-      "#A12A28",
-      "#C7B42C",
-      "#A10A28",
-      "#C7B42C"
+      "#91bad6",
+      "#73a5c6",
+      "#528aae",
+      "#2e5984",
+      "#91bad6",
+      "#73a5c6",
+      "#528aae",
+      "#2e5984",
+      "#1e3f66"
     ]
   };
 
@@ -60156,7 +60089,29 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }, []);
 
 
-    this.data = result
+    this.data_states = result
+    console.log(result);
+
+
+
+
+    let states_data = {};
+    let r = []
+    let result = this.datas.reduce(function (r, o) {
+      let key = o.bank;
+
+      if (!states_data[key]) {
+        states_data[key] = { "name": key, "value": 0 };//Object.assign({}, o); // create a copy of o
+        r.push(states_data[key]);
+      } else {
+        states_data[key].value += parseFloat(o.withholdingTaxAmount);
+      }
+
+      return r;
+    }, []);
+
+
+    this.data_banks = result
     console.log(result);
 
   }

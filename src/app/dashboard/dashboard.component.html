@@ -11,8 +11,9 @@
   <div class="row">
 
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-      <div class="card my-2 text-muted">
+      <div class="card my-2 text-muted text-center">
         <div class="card-body">
+          <div class="h5 mb-5">Banks withholding tax</div>
           <div style="display: block">
             <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="data_banks" [gradient]="gradient"
               [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
@@ -25,13 +26,51 @@
 
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <div class="card my-2 text-muted text-center">
-      
         <div class="card-body">
+          <div class="h5 mb-5">States withholding tax</div>
           <div style="display: block">
-            <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="data" [gradient]="gradient"
+            <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="data_states" [gradient]="gradient"
               [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
               [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel">
             </ngx-charts-bar-vertical>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
+      <div class="card my-2 text-muted text-center">
+        <div class="card-body">
+          <div class="h5 mb-5">Account type</div>
+          <div style="display: block">
+            <ngx-charts-pie-chart [view]="view" [scheme]="colorScheme" [results]="data_acc_type"
+              [animations]="animations" [legend]="showLegend" [legendTitle]="legendTitle"
+              [legendPosition]="legendPosition" [explodeSlices]="explodeSlices" [labels]="showLabels"
+              [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
+              [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" [tooltipText]="pieTooltipText"
+              (dblclick)="dblclick($event)" (select)="select($event)" (activate)="activate($event)"
+              (deactivate)="deactivate($event)">
+            </ngx-charts-pie-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
+      <div class="card my-2 text-muted text-center">
+        <div class="card-body">
+          <div class="h5 mb-5">Account designation</div>
+          <div style="display: block">
+            <ngx-charts-pie-chart [view]="view" [scheme]="colorScheme" [results]="data_design" [animations]="animations"
+              [legend]="showLegend" [legendTitle]="legendTitle" [legendPosition]="legendPosition"
+              [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [arcWidth]="arcWidth"
+              (legendLabelClick)="onLegendLabelClick($event)" [gradient]="gradient" [tooltipDisabled]="tooltipDisabled"
+              [tooltipText]="pieTooltipText" (dblclick)="dblclick($event)" (select)="select($event)"
+              (activate)="activate($event)" (deactivate)="deactivate($event)">
+            </ngx-charts-pie-chart>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class DashboardService {
 
   private API_URL = 'http://localhost:3000/api/data';
-  // datas: any[] = [];
+  datas: any[] = [];
 
   private dataUpdated = new Subject<{
     datas: any[];
@@ -29,9 +29,9 @@ export class DashboardService {
         this.API_URL
       )
       .subscribe(fetchedData => {
-        // this.datas = datas;
+        this.datas = fetchedData.datas;
         this.dataUpdated.next({
-          datas: fetchedData.datas
+          datas: [...this.datas]
         });
         // console.log("getted")
         // console.log(fetchedData.datas)

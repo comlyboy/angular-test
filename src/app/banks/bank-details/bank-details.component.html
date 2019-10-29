@@ -40,12 +40,14 @@
     </div>
 
     <div class="col-6">
-      <div class="card my-2">
+      <div class="card my-2 text-muted text-center">
         <div class="card-body">
+          <div class="h5 mb-5">States withholding tax</div>
           <div style="display: block">
-            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-              [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
-            </canvas>
+            <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="data_states" [gradient]="gradient"
+              [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel">
+            </ngx-charts-bar-vertical>
           </div>
         </div>
       </div>

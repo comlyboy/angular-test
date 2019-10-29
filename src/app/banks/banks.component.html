@@ -16,6 +16,8 @@
 <div class="container-fluid mt-5">
   <div class="row">
 
+    <!-- *ngFor="let product of products" -->
+
     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
       <div class="input-group my-1">
         <select class="form-control form-control-lg rounded-0 text-muted" (change)="savingsFilter($event.target.value)">
@@ -75,48 +77,23 @@
         <thead class="my-design text-white text-center">
           <tr>
             <th scope="col">Name</th>
-            <th scope="col">Bank Code</th>
-            <th scope="col">Actual WTH (<span>&#8358;</span>)</th>
-            <th scope="col">Expected WTH (<span>&#8358;</span>)</th>
-            <th scope="col">Customers</th>
+            <th scope="col">Total Deposits (<span>&#8358;</span>)</th>
+            <th scope="col">Total Interest (<span>&#8358;</span>)</th>
+            <th scope="col">Total WHT (<span>&#8358;</span>)</th>
             <th scope="col">Action</th>
           </tr>
 
         </thead>
         <tbody id="bank-table-list" class="bg-white">
 
-          <tr>
-            <td>Lorem Lorem</td>
-            <td>567945</td>
-            <td class="text-right">69425367564</td>
-            <td class="text-right">65746353523</td>
-            <td>Lorem</td>
+          <tr *ngFor="let data of datas">
+            <td>{{ data.bank }}</td>
+            <td class="text-right">{{ data.balance }}</td>
+            <td class="text-right">{{ data.interestAmount }}</td>
+            <td class="text-right">{{ data.withholdingTaxAmount }}</td>
             <td class="text-center">
-              <mat-icon class="pointerr" matTooltip="See details" matTooltipPosition="left" routerLink="/bank/first-bank">info
-              </mat-icon>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Lorem Lorem</td>
-            <td>567945</td>
-            <td class="text-right">69425367564</td>
-            <td class="text-right">65746353523</td>
-            <td>Lorem</td>
-            <td class="text-center">
-              <mat-icon class="pointerr" matTooltip="See details" matTooltipPosition="left" routerLink="/bank/first-bank">info
-              </mat-icon>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Lorem Lorem</td>
-            <td>567945</td>
-            <td class="text-right">69425367564</td>
-            <td class="text-right">65746353523</td>
-            <td>Lorem</td>
-            <td class="text-center">
-              <mat-icon class="pointerr" matTooltip="See details" matTooltipPosition="left" routerLink="/bank/first-bank">info
+              <mat-icon class="pointerr" matTooltip="See details" matTooltipPosition="left"
+                routerLink="/bank/first-bank">info
               </mat-icon>
             </td>
           </tr>

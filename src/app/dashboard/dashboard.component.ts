@@ -36,6 +36,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   showLegend = true;
   showXAxisLabel = true;
   xAxisLabel = "States";
+  xAxisLabell = "Banks";
   showYAxisLabel = true;
   yAxisLabel = "WHT";
 
@@ -59,7 +60,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   initContent() {
-
     this.dashboardService.getDatas()
     // console.log("get data")
     this.dashSub = this.dashboardService.getDataUpdateListener()

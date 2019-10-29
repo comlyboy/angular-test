@@ -61,13 +61,6 @@
             Messages
           </a></li>
       </ul>
-      <div class="text-center mt-5 pt-5">
-        <a matRipple (click)="onLogout()" (click)="drawer.close()"
-          class="mt-4 bg-danger text-white lead font-weight-bold my-ppointer border-0">
-          <mat-icon class="mr-3">power_settings_new</mat-icon>
-          Logout
-        </a>
-      </div>
     </div>
 
   </mat-drawer>
@@ -84,107 +77,106 @@
           </li>
         </ol>
       </nav>
-  </div>
+    </div>
 
 
 
-  <div class="container-fluid mt-4">
-    <div class="row">
+    <div class="container-fluid mt-4">
+      <div class="row">
 
-      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
-        <div class="input-group my-1">
-          <select class="form-control form-control-lg rounded-0 text-muted"
-            (change)="savingsFilter($event.target.value)">
-            <option selected value="">Savings...</option>
-            <option value="any">Options</option>
-            <option value="any">Options</option>
-            <option value="any">Options</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
-        <div class="input-group my-1">
-          <select class="form-control form-control-lg rounded-0 text-muted"
-            (change)="currentFilter($event.target.value)">
-            <option selected value="">Current...</option>
-            <option value="any">Options</option>
-            <option value="any">Options</option>
-            <option value="any">Options</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
-        <div class="input-group my-1">
-          <select class="form-control form-control-lg rounded-0 text-muted"
-            (change)="fixedDepositFilter($event.target.value)">
-            <option selected value="">Fixed deposit...</option>
-            <option value="any">Options</option>
-            <option value="any">Options</option>
-            <option value="any">Options</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-        <form (submit)="onSearch(bankSearchForm)" #bankSearchForm="ngForm">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
           <div class="input-group my-1">
-            <input type="text" class="form-control form-control-lg rounded-0" name="filtersearch" ngModel
-              name="inputSearch" autocomplete="off" placeholder="Search...">
-            <div class="input-group-prepend">
-              <button mat-button type="submit" class="btn btn-primary">
-                <mat-icon class="text-white">search</mat-icon>
-              </button>
-            </div>
+            <select class="form-control form-control-lg rounded-0 text-muted"
+              (change)="savingsFilter($event.target.value)">
+              <option selected value="">Savings...</option>
+              <option value="any">Options</option>
+              <option value="any">Options</option>
+              <option value="any">Options</option>
+            </select>
           </div>
-        </form>
-      </div>
+        </div>
 
-    </div>
-  </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
+          <div class="input-group my-1">
+            <select class="form-control form-control-lg rounded-0 text-muted"
+              (change)="currentFilter($event.target.value)">
+              <option selected value="">Current...</option>
+              <option value="any">Options</option>
+              <option value="any">Options</option>
+              <option value="any">Options</option>
+            </select>
+          </div>
+        </div>
 
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-2">
+          <div class="input-group my-1">
+            <select class="form-control form-control-lg rounded-0 text-muted"
+              (change)="fixedDepositFilter($event.target.value)">
+              <option selected value="">Fixed deposit...</option>
+              <option value="any">Options</option>
+              <option value="any">Options</option>
+              <option value="any">Options</option>
+            </select>
+          </div>
+        </div>
 
-  <div class="container-fluid mt-3">
-    <div class="row p-0 mb-2">
-      <div class="col-12">
-        <table class="table my-table-design table-striped table-hover table-responsive-md table-bordered">
-          <thead class="my-design text-white text-center">
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Number of Banks</th>
-              <th scope="col">Total Savings (<span>&#8358;</span>)</th>
-              <th scope="col">Total Interest (<span>&#8358;</span>)</th>
-              <th scope="col">Total WTH (<span>&#8358;</span>)</th>
-              <th scope="col">Action</th>
-
-            </tr>
-          </thead>
-          <tbody id="states-table-list" class="bg-white">
-          
-            <tr>
-              <td>Lorem Lorem</td>
-              <td>567945</td>
-              <td class="text-right">69425367564</td>
-              <td class="text-right">69425367564</td>
-              <td class="text-right">65746353523</td>
-              <td class="text-center">
-                <mat-icon class="pointerr" matTooltip="See details" matTooltipPosition="left"
-                  routerLink="/state/lagos-state">info
-                </mat-icon>
-              </td>
-            </tr>
-          
-          </tbody>
-        </table>
-
-        <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
-        </mat-paginator>
-
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <form (submit)="onSearch(bankSearchForm)" #bankSearchForm="ngForm">
+            <div class="input-group my-1">
+              <input type="text" class="form-control form-control-lg rounded-0" name="filtersearch" ngModel
+                name="inputSearch" autocomplete="off" placeholder="Search...">
+              <div class="input-group-prepend">
+                <button mat-button type="submit" class="btn btn-primary">
+                  <mat-icon class="text-white">search</mat-icon>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
 
       </div>
     </div>
-  </div>
+
+
+    <div class="container-fluid mt-3">
+      <div class="row p-0 mb-2">
+        <div class="col-12">
+          <table class="table my-table-design table-striped table-hover table-responsive-md table-bordered">
+            <thead class="my-design text-white text-center">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Total Banks</th>
+                <th scope="col">Total Deposits (<span>&#8358;</span>)</th>
+                <th scope="col">Total Interests (<span>&#8358;</span>)</th>
+                <!-- <th scope="col">Total WTH (<span>&#8358;</span>)</th> -->
+                <th scope="col">Action</th>
+
+              </tr>
+            </thead>
+            <tbody id="states-table-list" class="bg-white">
+
+              <tr *ngFor="let data of datas">
+                <td>{{ data.bank }}</td>
+                <td class="text-right">{{ data.balance }}</td>
+                <td class="text-right">{{ data.interestAmount }}</td>
+                <td class="text-right">{{ data.withholdingTaxAmount }}</td>
+                <td class="text-center">
+                  <mat-icon class="pointerr" matTooltip="See details" matTooltipPosition="left"
+                    routerLink="/state/lagos-state">info
+                  </mat-icon>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+          </mat-paginator>
+
+
+        </div>
+      </div>
+    </div>
   </div>
 </mat-drawer-container>
 

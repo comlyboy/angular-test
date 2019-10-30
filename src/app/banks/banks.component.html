@@ -88,9 +88,9 @@
 
           <tr *ngFor="let data of datas">
             <td>{{ data.bank }}</td>
-            <td class="text-right">{{ data.balance }}</td>
-            <td class="text-right">{{ data.interestAmount }}</td>
-            <td class="text-right">{{ data.withholdingTaxAmount }}</td>
+            <td class="text-right">{{ data.balance | number }}</td>
+            <td class="text-right">{{ data.interestAmount | number }}</td>
+            <td class="text-right">{{ data.withholdingTaxAmount | number }}</td>
             <td class="text-center">
               <mat-icon class="pointerr" matTooltip="See details" matTooltipPosition="left"
                 routerLink="/bank/first-bank">info

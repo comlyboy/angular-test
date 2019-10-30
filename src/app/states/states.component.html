@@ -64,8 +64,9 @@
     </div>
 
   </mat-drawer>
-  <div class="sidenav-content">
+  <app-spinner *ngIf="isloading"></app-spinner>
 
+  <div *ngIf="!isloading" class="sidenav-content">
     <div class="container-fluid px-5">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-transparent my-3 row py-1">
@@ -145,10 +146,9 @@
             <thead class="my-design text-white text-center">
               <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Total Banks</th>
                 <th scope="col">Total Deposits (<span>&#8358;</span>)</th>
                 <th scope="col">Total Interests (<span>&#8358;</span>)</th>
-                <!-- <th scope="col">Total WTH (<span>&#8358;</span>)</th> -->
+                <th scope="col">Total WHT (<span>&#8358;</span>)</th>
                 <th scope="col">Action</th>
 
               </tr>
@@ -156,10 +156,10 @@
             <tbody id="states-table-list" class="bg-white">
 
               <tr *ngFor="let data of datas">
-                <td>{{ data.bank }}</td>
-                <td class="text-right">{{ data.balance }}</td>
-                <td class="text-right">{{ data.interestAmount }}</td>
-                <td class="text-right">{{ data.withholdingTaxAmount }}</td>
+                <td>{{ data.state }}</td>
+                <td class="text-right">{{ data.balance | number }}</td>
+                <td class="text-right">{{ data.interestAmount | number }}</td>
+                <td class="text-right">{{ data.withholdingTaxAmount | number }}</td>
                 <td class="text-center">
                   <mat-icon class="pointerr" matTooltip="See details" matTooltipPosition="left"
                     routerLink="/state/lagos-state">info
@@ -179,6 +179,3 @@
     </div>
   </div>
 </mat-drawer-container>
-
-
-<

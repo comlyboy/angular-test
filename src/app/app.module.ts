@@ -41,6 +41,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BankDetailsComponent } from './banks/bank-details/bank-details.component';
 import { StateDetailsComponent } from './states/state-details/state-details.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -56,7 +57,8 @@ import { StateDetailsComponent } from './states/state-details/state-details.comp
     MessagesComponent,
     InteractionsComponent,
     BankDetailsComponent,
-    StateDetailsComponent
+    StateDetailsComponent,
+    SpinnerComponent
   ],
   imports: [
     FormsModule,

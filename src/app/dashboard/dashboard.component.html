@@ -11,7 +11,7 @@
     </button>
     <mat-menu #menu="matMenu" xPosition="before">
       <ng-template matMenuContent>
-        <button mat-button  routerLink="/">
+        <button mat-button routerLink="/">
           <mat-icon class="mr-2">power_settings_new</mat-icon> Logout
         </button>
       </ng-template>
@@ -61,7 +61,7 @@
             Messages
           </a></li>
       </ul>
-  
+
     </div>
 
   </mat-drawer>
@@ -111,19 +111,14 @@
 
 
 
-
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
           <div class="card my-2 text-muted text-center">
             <div class="card-body">
-              <div class="h5 mb-5">Account type</div>
-              <div style="display: block">
-                <ngx-charts-pie-chart [view]="view" [scheme]="colorScheme" [results]="data_acc_type"
-                  [animations]="animations" [legend]="showLegend" [legendTitle]="legendTitle"
-                  [legendPosition]="legendPosition" [explodeSlices]="explodeSlices" [labels]="showLabels"
-                  [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
-                  [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" [tooltipText]="pieTooltipText"
-                  (dblclick)="dblclick($event)" (select)="select($event)" (activate)="activate($event)"
-                  (deactivate)="deactivate($event)">
+              <div class="h5 mb-2">Account Type</div>
+              <div class="card-body">
+                <ngx-charts-pie-chart [view]="viewPie" [scheme]="colorScheme" [results]="data_acc_type"
+                  [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut"
+                  [gradient]="gradient">
                 </ngx-charts-pie-chart>
               </div>
             </div>
@@ -133,15 +128,11 @@
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
           <div class="card my-2 text-muted text-center">
             <div class="card-body">
-              <div class="h5 mb-5">Account designation</div>
-              <div style="display: block">
-                <ngx-charts-pie-chart [view]="view" [scheme]="colorScheme" [results]="data_design"
-                  [animations]="animations" [legend]="showLegend" [legendTitle]="legendTitle"
-                  [legendPosition]="legendPosition" [explodeSlices]="explodeSlices" [labels]="showLabels"
-                  [doughnut]="doughnut" [arcWidth]="arcWidth" (legendLabelClick)="onLegendLabelClick($event)"
-                  [gradient]="gradient" [tooltipDisabled]="tooltipDisabled" [tooltipText]="pieTooltipText"
-                  (dblclick)="dblclick($event)" (select)="select($event)" (activate)="activate($event)"
-                  (deactivate)="deactivate($event)">
+              <div class="h5 mb-2">Account Designation</div>
+              <div class="card-body">
+                <ngx-charts-pie-chart [view]="viewPie" [scheme]="colorScheme" [results]="data_acc_design"
+                  [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut"
+                  [gradient]="gradient">
                 </ngx-charts-pie-chart>
               </div>
             </div>
@@ -150,6 +141,5 @@
 
       </div>
     </div>
-
   </div>
 </mat-drawer-container>

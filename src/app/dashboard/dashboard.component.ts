@@ -24,8 +24,47 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   data_states: any[];
   data_banks: any[];
-  data_acc_type: any[];
-  data_design: any[];
+  data_acc_type: any[] = [{
+    "name": "Joint",
+    "value": 8940000
+  },
+  {
+    "name": "Savings",
+    "value": 5000000
+  },
+  {
+    "name": "Current",
+    "value": 5000000
+  },
+  {
+    "name": "Fixed Deposit",
+    "value": 5455000
+  },
+  {
+    "name": "Others",
+    "value": 5000000
+  },
+  {
+    "name": "Domiciliary",
+    "value": 7200000
+  }];
+
+  data_acc_design: any[] = [{
+    "name": "NGO",
+    "value": 8940000
+  },
+  {
+    "name": "Individual",
+    "value": 5000000
+  },
+  {
+    "name": "Corporate",
+    "value": 5000000
+  },
+  {
+    "name": "Others",
+    "value": 5000000
+  }];
 
   // view: any[] = [1200, 600];
 
@@ -53,6 +92,21 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       "#1e3f66"
     ]
   };
+
+
+
+  // options
+  // // showLegend_pie = true;
+
+  // colorSchemee = {
+  //   domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  // };
+
+  // pie
+  viewPie: any[] = [500, 500];
+  showLabels = true;
+  explodeSlices = false;
+  doughnut = false;
 
   constructor(
     public dashboardService: DashboardService,

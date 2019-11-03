@@ -28,6 +28,10 @@ a {
     cursor: pointer;
 }
 
+.shadow {
+    box-shadow: -2px 2px 15px 1px #D4DFEC !important;
+}
+
 .my-table-design {
     font-size: 13px !important;
     font-weight: 600 !important;

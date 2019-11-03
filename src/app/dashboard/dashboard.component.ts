@@ -13,10 +13,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   datas: any[] = []
   title: string = "BRADLEY";
 
-  banks: string[] = [];
-  states: string[] = [];
-  wht: number[] = []
-  whtt: number[] = []
+  totalWHT: number = 0;
 
   private dashSub: Subscription;
 
@@ -51,7 +48,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   data_acc_design: any[] = [{
     "name": "NGO",
-    "value": 8940000
+    "value": 894000
   },
   {
     "name": "Individual",
@@ -119,58 +116,87 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.dashSub = this.dashboardService.getDataUpdateListener()
       .subscribe((Ddata: { datas: any[] }) => {
         this.datas = Ddata.datas;
-        // console.log("get data")
-        // console.log(Ddata.datas)
+        this.datas.map((data) => {
+          this.totalWHT += parseFloat(data.withholdingTaxAmount);
+        })
       });
 
-    setTimeout(() => {
-      let states_data = {};
-      let r = []
-      let result = this.datas.reduce(function (r, o) {
-        let key = o.state;
-
-        if (!states_data[key]) {
-          states_data[key] = { "name": key, "value": 0 };//Object.assign({}, o); // create a copy of o
-          r.push(states_data[key]);
-        } else {
-          states_data[key].value += parseFloat(o.withholdingTaxAmount);
-        }
-
-        return r;
-      }, []);
 
 
-      this.data_states = result
-      // console.log(result);
+  }
+  initCharts() {
+
+    // states bar chart
+    let states_data = {};
+    let r = []
+    let result = this.datas.reduce(function (r, o) {
+      let key = o.state;
+
+      if (!states_data[key]) {
+        states_data[key] = { "name": key, "value": 0 };//Object.assign({}, o); // create a copy of o
+        r.push(states_data[key]);
+      } else {
+        states_data[key].value += parseFloat(o.withholdingTaxAmount);
+      }
+
+      return r;
+    }, []);
+
+
+    this.data_states = result
+    // console.log(result);
+
+
+    // banks bar chart
+    let banks_data = {};
+    let rr = []
+    let result_banks = this.datas.reduce(function (r, o) {
+      let key = o.bank;
+
+      if (!banks_data[key]) {
+        banks_data[key] = { "name": key, "value": 0 };//Object.assign({}, o); // create a copy of o
+        r.push(banks_data[key]);
+      } else {
+        banks_data[key].value += parseFloat(o.withholdingTaxAmount);
+      }
+
+      return rr;
+    }, []);
+
+
+    this.data_banks = result_banks
+    console.log(result);
 
 
 
-      let banks_data = {};
-      let rr = []
-      let result_banks = this.datas.reduce(function (r, o) {
-        let key = o.bank;
-
-        if (!banks_data[key]) {
-          banks_data[key] = { "name": key, "value": 0 };//Object.assign({}, o); // create a copy of o
-          r.push(banks_data[key]);
-        } else {
-          banks_data[key].value += parseFloat(o.withholdingTaxAmount);
-        }
-
-        return rr;
-      }, []);
 
 
-      this.data_banks = result_banks
-      // console.log(result);
+    let ngo_data = {};
+    let a = []
+    let result_ngo = this.datas.reduce(function (r, o) {
+      let key = o.accountDesignation;
 
-    }, 1000);
+      if (!ngo_data[key]) {
+        ngo_data[key] = { "name": key, "value": 0 };//Object.assign({}, o); // create a copy of o
+        a.push(ngo_data[key]);
+      } else {
+        ngo_data[key].value += parseFloat(o.withholdingTaxAmount);
+      }
+
+      return rr;
+    }, []);
+
+
+    // this.data_banks = result_banks
+    console.log(result_ngo);
 
   }
 
   ngOnInit() {
     this.initContent();
-
+    setTimeout(() => {
+      this.initCharts();
+    }, 1000);
     // this.datas.map((user) => {
     //   this.states.push(user.state)
     //   // console.log(user.state);
